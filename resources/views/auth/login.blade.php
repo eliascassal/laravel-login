@@ -60,13 +60,26 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
-                                <a class="btn btn-link" href="redirect">
-                                    {{ __('facebook') }}
-                                </a>
                             </div>
                         </div>
                     </form>
                 </div>
+                         <div class="card-footer text-center" >
+                                                  
+                                 <a class="btn btn-facebook" href="redirect">
+                                    <i class="fa fa-facebook" ></i>
+                                    login con facebook
+                                </a>
+                                 <a class="btn btn-twitter" href="redirect">
+                                    <i class="fa fa-twitter" ></i>
+                                    login con twitter
+                                </a>
+                                 <a class="btn btn-google" href="redirect">
+                                    <i class="fa fa-google" ></i>
+                                    login con google
+                                </a>
+                        </div>
+                              
             </div>
         </div>
     </div>
