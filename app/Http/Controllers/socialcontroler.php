@@ -14,7 +14,7 @@ class socialcontroler extends Controller
     public function callback(){
     	$user = Socialite::driver('facebook')->user();
 
-    	return ($user->getId());
+    	//return ($user->getId());
+    	return view('horario');
     }
-}
 
