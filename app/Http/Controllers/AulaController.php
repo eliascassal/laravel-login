@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Aula;
+
 use Illuminate\Http\Request;
 
 class AulaController extends Controller
@@ -13,7 +15,8 @@ class AulaController extends Controller
      */
     public function index()
     {
-        //
+        $aulas = Aula::All();
+        return view('aula.index', compact('aulas'));
     }
 
     /**
@@ -23,7 +26,7 @@ class AulaController extends Controller
      */
     public function create()
     {
-        //
+        return view('aula.create');
     }
 
     /**
@@ -34,7 +37,12 @@ class AulaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aula = new Aula();
+        $aula->name = $request->input('name');
+        $aula->save();
+
+        $aulas = Aula::All();
+        return view('aula.index', compact('aulas'));
     }
 
     /**
@@ -45,7 +53,8 @@ class AulaController extends Controller
      */
     public function show($id)
     {
-        //
+        $aula = Aula::find($id);
+        return view('aula.show', compact('aula'));
     }
 
     /**

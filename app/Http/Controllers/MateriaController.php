@@ -13,8 +13,8 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        
-        return view('materia.create');
+        $materias = Materia::All();
+        return view('materia.index', compact('materias'));
 
     }
 
@@ -41,7 +41,9 @@ class MateriaController extends Controller
         $materia->name = $request->input('name');
         $materia->save();
 
-        return view('materia.create');
+        $materias = Materia::All();
+        return view('materia.index', compact('materias'));
+
     }
 
     /**
@@ -52,7 +54,8 @@ class MateriaController extends Controller
      */
     public function show($id)
     {
-        //
+        $materia = Materia::find($id);
+        return view('materia.show', compact('materia'));
     }
 
     /**
@@ -63,7 +66,8 @@ class MateriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $materia = Materia::find($id);
+        return view('materia.edit', compact('materia'));
     }
 
     /**
@@ -75,7 +79,10 @@ class MateriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $materia = Materia::find($id);
+        $materia->name = $request->input('name');
+        $materia->save();
+        return view('materia.show', compact('materia'));
     }
 
     /**

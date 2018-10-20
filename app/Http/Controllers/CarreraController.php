@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Docente;
-
-class DocenteController extends Controller
+use App\Carrera;
+class CarreraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::All();
-        return view('docente.index', compact('docentes'));
-
+        $carreras = Carrera::All();
+        return view ('carrera.index', compact('carreras'));
     }
 
     /**
@@ -26,7 +24,7 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        return view('docente.create');
+        return view('carrera.create');
     }
 
     /**
@@ -37,23 +35,14 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name'=>'required',
-            'avatar'=>'required|image'
-            ]);
-       $docente = new Docente(); 
-        if($request->hasFile('avatar')){
-            $file = $request->file('avatar');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/',$name);
-        }
-        $docente->description = $request->TextArea('description');
-        $docente->name = $request->input('name');
-        $docente->avatar = $name;
-        $docente->save();
+       $carrera = new Carrera(); 
 
-        $docentes = Docente::All();
-        return view('docente.index', compact('docentes'));     }
+        $carrera->name = $request->input('name');
+
+        $carrera->save();
+        $carreras = Carrera::All();
+        return view('carrera.index', compact('carreras'));  
+    }
 
     /**
      * Display the specified resource.
@@ -63,8 +52,8 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-        $docente = Docente::find($id);
-        return view('docente.show', compact('docente'));
+         $carrera = Carrera::find($id);
+        return view('carrera.show', compact('carrera'));
     }
 
     /**
@@ -75,7 +64,8 @@ class DocenteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $carrera = Carrera::find($id);
+        return view('carrera.edit', compact('carrera'));
     }
 
     /**
@@ -87,7 +77,11 @@ class DocenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $carrera = Carrera::find($id);
+        $carrera->name = $request->input('name');
+        $carrera->save();
+        return view('carrera.show', compact('carrera'));
+
     }
 
     /**

@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Ayudante;
 use Illuminate\Http\Request;
-use App\Docente;
 
-class DocenteController extends Controller
+class AyudanteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::All();
-        return view('docente.index', compact('docentes'));
+        return view('ayudante.create');
 
     }
 
@@ -26,7 +24,8 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        return view('docente.create');
+        return view('ayudante.create');
+
     }
 
     /**
@@ -37,23 +36,12 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name'=>'required',
-            'avatar'=>'required|image'
-            ]);
-       $docente = new Docente(); 
-        if($request->hasFile('avatar')){
-            $file = $request->file('avatar');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/',$name);
-        }
-        $docente->description = $request->TextArea('description');
-        $docente->name = $request->input('name');
-        $docente->avatar = $name;
-        $docente->save();
+        $ayudante = new Ayudante();
+        $ayudante->name = $request->input('name');
+        $ayudante->save();
+        return view('ayudante.create');
 
-        $docentes = Docente::All();
-        return view('docente.index', compact('docentes'));     }
+    }
 
     /**
      * Display the specified resource.
@@ -63,8 +51,7 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-        $docente = Docente::find($id);
-        return view('docente.show', compact('docente'));
+        //
     }
 
     /**

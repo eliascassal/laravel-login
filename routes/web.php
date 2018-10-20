@@ -27,7 +27,9 @@ Route::resource('/docente', 'DocenteController');
 Route::resource('/materia', 'MateriaController');
 Route::resource('/aula', 'AulaController');
 Route::resource('/carrera', 'CarreraController');
-Route::post('/docente', 'DocenteController@create');
+Route::resource('/ayudante', 'AyudanteController');
+
+//Route::get('/docente', 'DocenteController@create');
 
 
 
