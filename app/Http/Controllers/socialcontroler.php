@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Docente;
 use Socialite;
 
 class socialcontroler extends Controller
@@ -14,7 +14,8 @@ class socialcontroler extends Controller
     public function callback(){
     	$user = Socialite::driver('facebook')->user();
 
-    	//return ($user->getId());
-    	return view('horario');
+    	$docentes = Docente::All();
+        return view('docente.index', compact('docentes'));
     }
 
+}

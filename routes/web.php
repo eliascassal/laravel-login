@@ -29,6 +29,7 @@ Route::resource('/aula', 'AulaController');
 Route::resource('/carrera', 'CarreraController');
 Route::resource('/ayudante', 'AyudanteController');
 
+Route::get('/HomeHorario', 'HomehorarioController@index');
 //Route::get('/docente', 'DocenteController@create');
 
 

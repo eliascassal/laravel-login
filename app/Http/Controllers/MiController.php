@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Carrera;
-class CarreraController extends Controller
+
+class MiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class CarreraController extends Controller
      */
     public function index()
     {
-        $carreras = Carrera::All();
-        return view ('carrera.index', compact('carreras'));
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        return view('carrera.create');
+        //
     }
 
     /**
@@ -35,14 +34,7 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-       
-       $carrera = new Carrera(); 
-
-        $carrera->name = $request->input('name');
-
-        $carrera->save();
-        $carreras = Carrera::All();
-        return view('carrera.index', compact('carreras'));  
+        //
     }
 
     /**
@@ -53,8 +45,7 @@ class CarreraController extends Controller
      */
     public function show($id)
     {
-         $carrera = Carrera::find($id);
-        return view('carrera.show', compact('carrera'));
+        //
     }
 
     /**
@@ -65,8 +56,7 @@ class CarreraController extends Controller
      */
     public function edit($id)
     {
-        $carrera = Carrera::find($id);
-        return view('carrera.edit', compact('carrera'));
+        //
     }
 
     /**
@@ -78,11 +68,7 @@ class CarreraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $carrera = Carrera::find($id);
-        $carrera->name = $request->input('name');
-        $carrera->save();
-        return view('carrera.show', compact('carrera'));
-
+        //
     }
 
     /**

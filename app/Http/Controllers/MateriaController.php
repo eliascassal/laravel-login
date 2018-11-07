@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Materia;
+
 class MateriaController extends Controller
 {
     /**
@@ -25,7 +26,7 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        return view('materia.create');
+        return view('materia.create2');
 
     }
 
@@ -93,6 +94,8 @@ class MateriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $materia = Materia::find($id);
+        $materia->delete();
+
     }
 }

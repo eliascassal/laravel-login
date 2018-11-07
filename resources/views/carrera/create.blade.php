@@ -11,7 +11,7 @@
 		<label for="">Nombre de la Carrera</label>
 		<input type="text" name="name" class="form-control">
 	</div>
-	<button type="submit" class="btn btn-primary">Actualizar</button>
+	<button type="submit" class="btn btn-primary">Guardar CArrera 	 	</button>
 	
 </form>
 @endsection

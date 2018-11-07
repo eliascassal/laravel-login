@@ -2,7 +2,7 @@
 
 @section('title', 'Descripcion de Materias')
 
-@section('title1', 'Materia')
+@section('title1', $materia->name)
 @section('content')
 
 <img Style= "width: 200px; height: 200px; background-color:#EFEFEF; margin: 20px;" class="card-img-top rounded-circle mx-auto d-block"  src="/images/qm9897332054.jpg" alt="">

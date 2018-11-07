@@ -4,6 +4,17 @@
 @section('title1', 'Nuevo docente')
 @section('content')
 
+
+@if ($errors->any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+			@endforeach
+		</ul>
+	</div>
+@endif
+
 	<form class="form-control" method="POST" action="/docente" enctype="multipart/form-data">
 			@csrf
 		<div class="form-group">
